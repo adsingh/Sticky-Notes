@@ -6,9 +6,13 @@ export default class Note extends React.Component{
     state = {editing : false}
 
     componentWillMount(){
+        this.width = Math.max(window.innerWidth*0.15, 200);
+        this.height = Math.max(window.innerHeight*0.2, 200);
         this.style = {
-            right : this.getRandomPosition(0, window.innerWidth - 150, 'px'),
-            top   : this.getRandomPosition(0, window.innerHeight - 150, 'px')
+            right : this.getRandomPosition(0, window.innerWidth - this.width, 'px'),
+            top   : this.getRandomPosition(0, window.innerHeight - this.height, 'px'),
+            width : this.width,
+            height: this.height
         }
     }
 
