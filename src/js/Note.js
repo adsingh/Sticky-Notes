@@ -12,21 +12,28 @@ export default class Note extends React.Component{
         }
     }
 
+    componentDidUpdate(){
+        if(this.state.editing){
+            this.refs.newText.focus();
+            this.refs.newText.select();
+        }
+    }
     getRandomPosition(x,y,unit){
         return (x + Math.ceil(Math.random() * (y-x))) + unit
     }
 
     edit(){
+        
         this.setState({ editing : true});
-        // alert('Editing')
     }
 
     remove(){
-        alert('removing')
+        this.props.onRemove(this.props.index);
     }
 
     save(){
         // alert('saving')
+        this.props.onChange(this.refs.newText.value, this.props.index)
         this.setState({editing : false})
 
     }
@@ -34,7 +41,7 @@ export default class Note extends React.Component{
     renderForm(){
         return (
             <div className='note' style={this.style}>
-                <textarea></textarea>
+                <textarea ref="newText" defaultValue={this.props.children}></textarea>
                 <button onClick={this.save.bind(this)}>SAVE</button>
             </div>
         )
