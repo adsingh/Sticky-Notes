@@ -1,2 +1,2 @@
 # Sticky-Notes
-## Sticky Notes aaplicaion built usnig React
+## Sticky Notes applicaion built using React, Webpack, HTML, CSS
