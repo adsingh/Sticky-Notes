@@ -3,7 +3,25 @@ import Note from './Note'
 
 export default class Board extends React.Component{
 
-    state = {notes : []}
+    state = {
+              notes : [],
+              hover : false
+            }
+
+    style = function(){
+        var style = {
+            background : 'none',
+            border : 0,
+            fontSize: 60
+        }
+        if(this.state.hover){
+            style.color = 'black';
+        }
+        else{
+            style.color = 'white';
+        }
+        return style;
+    }
 
     getNextId(){
         this.nextId = this.nextId || 0;
@@ -17,7 +35,7 @@ export default class Board extends React.Component{
                 id:this.getNextId(), 
                 text:text}
         ];
-        this.setState({notes});
+        this.setState({notes:notes,hover:false});
     }
 
     update(newText, id){
@@ -48,13 +66,25 @@ export default class Board extends React.Component{
         )
     }
 
+    onMouseOver(){
+        this.setState({hover : true})
+    }
+
+    onMouseOut(){
+        this.setState({hover : false})
+    }
+
 
     render(){
 
         return (
             <div className='board'>
                 {this.state.notes.map(this.eachNote.bind(this))}
-                <button onClick={()=> this.add()}>ADD</button>
+                <button style={this.style()} 
+                        onClick={()=> this.add()}
+                        onMouseOver={this.onMouseOver.bind(this)}
+                        onMouseOut={this.onMouseOut.bind(this)}>
+                        <i className="fa fa-plus-circle"></i></button>
             </div>
         )
 

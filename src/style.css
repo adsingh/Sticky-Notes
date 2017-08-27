@@ -16,13 +16,13 @@ body {
 div.board {
   background-color: 'brown';
   width: 100%;
-  background: #eab92d;
+  background: #0587bc;
 }
 
 div.note {
   height: 150px;
   width: 150px;
-  background-color: yellow;
+  background-color: #82ceed;
   margin: 2px 0;
   position: absolute;
   cursor: -webkit-grab;
