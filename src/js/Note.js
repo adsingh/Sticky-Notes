@@ -46,7 +46,7 @@ export default class Note extends React.Component{
         return (
             <div className='note' style={this.style}>
                 <textarea ref="newText" defaultValue={this.props.children}></textarea>
-                <button onClick={this.save.bind(this)}>SAVE</button>
+                <button id="save-btn" onClick={this.save.bind(this)}><i className="fa fa-floppy-o"></i> SAVE</button>
             </div>
         )
     }
@@ -56,8 +56,8 @@ export default class Note extends React.Component{
             <div className='note' style={this.style}>
                 <p>{this.props.children}</p>
                 <span>
-                    <button onClick={this.edit.bind(this)}>EDIT</button>
-                    <button onClick={this.remove.bind(this)}>DEL</button>
+                    <button id="edit-btn" onClick={this.edit.bind(this)}><i className="fa fa-pencil"></i> EDIT</button>
+                    <button id="del-btn" onClick={this.remove.bind(this)}><i className="fa fa-trash"></i> DEL</button>
                 </span>
             </div>
         )
