@@ -16,13 +16,13 @@ body {
 div.board {
   background-color: 'brown';
   width: 100%;
-  background: #eab92d;
+  background: #0587bc;
 }
 
 div.note {
   height: 150px;
   width: 150px;
-  background-color: yellow;
+  background-color: #82ceed;
   margin: 2px 0;
   position: absolute;
   cursor: -webkit-grab;
@@ -55,12 +55,25 @@ div.note > span {
 
 div.note button {
   margin: 2px;
+  border: 0;
+  color: white;
 }
 
 div.note > textarea {
   height: 80%;
   width: 85%;
   background: rgba(255, 255, 255, .5);
+}
+
+#edit-btn{
+  background: blue;
+}
+#del-btn{
+  background: #dd1c16;
+}
+
+#save-btn{
+  background: green;
 }
 
 .board > button {
